@@ -1,16 +1,24 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const apiURL = "https://lanciweb.github.io/demo/api";
 
 export default function App() {
-  const [count, setCount] = useState(0);
+  const [actresses, getActresses] = useState([]);
+
+  const fetchActresses = () => {
+    axios.get(apiURL + "/actresses/").then((res) => {
+      getActresses(res.data);
+    });
+  };
+
+  useEffect(fetchActresses, []);
+
+  console.log(actresses);
 
   return (
     <>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
     </>
   );
 }
