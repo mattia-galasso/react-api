@@ -1,0 +1,12 @@
+.actCard {
+  width: 24rem;
+  height: 100%;
+  margin: 0;
+}
+
+.actress-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
